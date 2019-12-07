@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Learning ASP.NET Core MVC 2</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="scripts.js"></script>
+</head>
+<body>
+    <!-- Settings -->
+    <div class="container">
+        <button data-toggle="collapse" data-target="#collapseSettings" aria-expanded="false" aria-controls="collapseSettings"
+            class="float-right">
+            <img src="img/gear wheel.png">
+        </button>
+        <div class="collapse" id="collapseSettings">
+            <h4>Settings</h4>
+            <div class="form-group row">
+                <label for="projects" class="col-sm-2 col-form-label">Projects:</label>
+                <div class="col-sm-10">
+                    <select id="projects"></select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="commitsApiUrl" class="col-sm-2 col-form-label">Commits API URL:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="commitsApiUrl"
+                        placeholder="https://api.github.com/repos/TRM79-Temp/ASP-PartyInvites-2.0/commits">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="commitsToLoad" class="col-sm-2 col-form-label">Commits to load:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="commitsToLoad"
+                        placeholder="0 - to load all commits"
+                        value="0">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="commits">Commits:</label>
+                <textarea id="commits" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="textEdit">Text:</label>
+                <textarea id="textEdit" class="form-control"></textarea>
+            </div>
+            <div>
+                <label title="When the 'editingMode' is true the text is loaded from this document, not from the local storage.">
+                    <input type="checkbox" id="editingMode"> Editing mode
+                </label>
+            </div>
+            <button class="btn btn-sm btn-primary" id="btnDownload">Download commits</button>
+            <button class="btn btn-sm btn-primary" id="btnShow">Show commits</button>
+            <button class="btn btn-sm btn-primary" id="btnSave">Save</button>
+            <button class="btn btn-sm btn-primary" id="btnExport">Export to file</button>
+            <span class="btn btn-sm btn-primary">
+                <label style="margin-bottom: 0;">
+                    Import from file
+                    <input type="file"
+                        id="fileImport"
+                        accept="text/plain"
+                        style="display: none">
+                </label>
+            </span>
+            <button class="btn btn-sm btn-success" id="btnNew" data-toggle="collapse" data-target="#collapseNew" aria-expanded="false"
+                aria-controls="collapseNew">New project</button>
+
+            <div class="collapse" id="collapseNew" style="margin-top: 10px;">
+                <div class="form-group row">
+                    <label for="projects" class="col-sm-2 col-form-label">Project:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="newProject"
+                            placeholder="Project name">
+                    </div>
+                </div>
+                <button class="btn btn-sm btn-primary" id="btnAddNew">Add</button>
+                <button class="btn btn-sm btn-primary" id="btnCancelNew" data-toggle="collapse" data-target="#collapseNew" aria-expanded="false"
+                    aria-controls="collapseNew">Cancel</button>
+            </div>
+        </div>
+        <br>
+    </div>
+
+    <!-- Main part -->
+    <div id="text" class="container">
+        <p style="display: none;">Add your notes here...</p>
+    </div>
+
+    <!-- External JavaScript -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
