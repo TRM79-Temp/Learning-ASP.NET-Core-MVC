@@ -233,8 +233,17 @@ window.onload = function () {
 
         //
 
+        var textEditingEl = document.getElementById('textEditingMode');
+        var textEl = document.getElementById('text');
+
         if (!githubApiHelper.editingMode) {
-            document.getElementById('text').innerHTML = activeProject.text;
+            textEditingEl.style.display = 'none';
+            textEl.style.display = '';
+            textEl.innerHTML = activeProject.text;
+        }
+        else {
+            textEditingEl.style.display = '';
+            textEl.style.display = 'none';
         }
 
         //
@@ -327,6 +336,9 @@ window.onload = function () {
     document.getElementById('editingMode').onchange = function() {
         localStorage.editingMode = this.checked;
         githubApiHelper.editingMode = this.checked;
+
+        var activeProject = githubApiHelper.getActiveProject();
+        showProject(activeProject);
     }
 
     document.getElementById('btnExport').onclick = function() {
@@ -352,7 +364,9 @@ window.onload = function () {
         githubApiHelper.saveCommits(projectName, '', '', '');
         githubApiHelper.setActiveProject(projectName);
         githubApiHelper.saveChanges();
-        alert('Project added. Please reload page.');
+
+        var activeProject = githubApiHelper.getActiveProject();
+        showProject(activeProject);
     }
 
     // Getting projects and displaying an active.
